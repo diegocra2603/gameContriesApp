@@ -1,1 +1,7 @@
-<app-home [data]="contries" (jugarDeNuevo)="loadData()" ></app-home>
+<ng-container *ngIf="!loading; else elseTemplate">
+    <app-home [data]="contries" (jugarDeNuevo)="loadData()" ></app-home>
+</ng-container>
+<ng-template #elseTemplate>
+    <h3 class="text-secondary text-center">Cargando...</h3>
+</ng-template>
+

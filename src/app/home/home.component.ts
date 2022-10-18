@@ -7,8 +7,7 @@ import { ELugar, ILugar } from './home.interfaces';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent {
 
   _data: {[key:string]:string} = {};
 
@@ -29,12 +28,6 @@ export class HomeComponent implements OnInit {
   buttonsError: string[] = [];
 
   errores: number = 0;
-
-  ngOnInit(): void {
-
-    this.setData();
-
-  }
 
   setData() {
 
@@ -80,7 +73,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  validateLugar() {
+  validateLugar(): boolean {
 
     if (this.buttonToValue?.id === this.buttonSelected?.id && this.buttonToValue?.type !== this.buttonSelected?.type)
       return true;

@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
 
   contries: {[key:string]:string} = {};
 
+  loading:boolean = true;
+
   constructor(private _homeService:HomeService){}
 
   ngOnInit(): void {
@@ -17,8 +19,10 @@ export class AppComponent implements OnInit {
   }
 
   loadData(){
+    this.loading = true;
     this._homeService.getPaisesPorContinente('americas').subscribe( (contries) => {
       this.contries = contries;
+      this.loading = false;
     });
   }
 
