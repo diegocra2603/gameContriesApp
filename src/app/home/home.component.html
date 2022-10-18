@@ -1,0 +1,23 @@
+<h1>Países y Capitales</h1>
+
+<hr>
+
+<div class="card">
+
+    <div class="row gx-5 gy-5 gap-3">
+        <ng-container *ngFor="let lugar of lugares">
+            <button [class]="'col-2 ' + setColorsButtons(lugar)"
+                (click)="selectValue(lugar)">{{lugar.nombre | camelCaseToTitleCase}}</button>
+        </ng-container>
+
+        <ng-container *ngIf="lugares.length === 0">
+            <h1  class="text-center text-success" >Felicidades!!</h1>
+            <h1  class="text-center text-success" >Has completado todos los lugares con <span class="text-danger"> {{errores}} Errores </span></h1>
+            <button class="btn btn-success" (click)="_jugarDeNuevo()" >Jugar de Nuevo</button>
+        </ng-container>
+        
+
+    </div>
+
+
+</div>
